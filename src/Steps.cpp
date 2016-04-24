@@ -2,7 +2,7 @@
 
 	You have N steps to climb .
 	You can either take one step or two steps at a time .
-	You need to find the total number of ways you can reach N steps .
+	You need to find the 5 total number of ways you can reach N steps .
 
 	Example : For N=4 , You can either reach 4 steps in following ways
 	->1111
@@ -22,9 +22,20 @@
 
 */
 #include "stdafx.h"
-
+int count_steps(int);
 
 int get_steps(int s)
+{ 
+	int c=count_steps(s + 1);
+	return c;
+	
+}
+
+int count_steps(int N)
 {
-	return 0;
+	if (N == 0)
+		return 0;
+	else if (N == 1)
+		return 1;
+	return (count_steps(N - 1) + count_steps(N - 2));
 }
